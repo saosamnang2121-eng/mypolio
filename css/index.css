@@ -1,17 +1,23 @@
 :root {
-  --bg: #0f0f0f;
-  --text: #e0e0e0;
-  --text-muted: #888;
+  --bg-start: #2a0066;
+  --bg-mid: #000814;
+  --bg-end: #000000;
+  --text: #ffffff;
+  --text-muted: #ffffff;
   --accent: #4ea8de;
   --border: #222;
+  --noise-opacity: 0.9;
 }
 
 [data-theme="light"] {
-  --bg: #f8f9fa;
-  --text: #1a1a1a;
-  --text-muted: #555;
+  --bg-start: #f8f9fa;
+  --bg-mid: #f8f9fa;
+  --bg-end: #f8f9fa;
+  --text: #0f1bff;
+  --text-muted: #0066cc;
   --accent: #0066cc;
   --border: #ddd;
+  --noise-opacity: 0.9;
 }
 
 * {
@@ -27,6 +33,8 @@ body {
   position: relative;
   font-family: system-ui, sans-serif;
   color: #e0e0ff;
+  transition: background 0.6s ease, color 0.6s ease;
+  /* smooth theme change */
 }
 
 /* Base gradient + subtle noise */
@@ -34,9 +42,11 @@ body::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 50% 50%, #2a0066 0%, #000814 70%, #000 100%);
-  opacity: 0.9;
+  background: radial-gradient(ellipse at 50% 50%, var(--bg-start) 0%, var(--bg-mid) 70%, var(--bg-end) 100%);
+  opacity: var(--noise-opacity);
   pointer-events: none;
+  transition: opacity 0.8s ease;
+  /* gentle fade for the overlay */
 }
 
 /* Floating abstract shapes (triangles, hex, etc.) */
@@ -106,8 +116,42 @@ body::before {
 .logo {
   font-size: 1.55rem;
   font-weight: 700;
-  color: var(--accent);
   text-decoration: none;
+}
+
+.logo img {
+  height: 60px;
+}
+
+.logo {
+  display: inline-block;
+  /* or block/flex depending on your layout */
+  position: relative;
+}
+
+.logo img {
+  transition: opacity 0.4s ease;
+  /* optional smooth fade */
+}
+
+.logo-light {
+  opacity: 1;
+}
+
+.logo-dark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+/* When dark mode is active */
+[data-theme="dark"] .logo-light {
+  opacity: 0;
+}
+
+[data-theme="dark"] .logo-dark {
+  opacity: 1;
 }
 
 .nav-menu {
@@ -123,14 +167,10 @@ body::before {
   padding: 0.5rem 0.3rem;
   transition: color 0.2s;
   position: relative;
+  font-family: "IBM Plex Mono", monospace;
 }
 
-.nav-menu a:hover,
-.nav-menu a.active {
-  color: var(--text);
-}
-
-.nav-menu a.active::after {
+.nav-menu a::after {
   content: '';
   position: absolute;
   bottom: -2px;
@@ -139,22 +179,101 @@ body::before {
   height: 2px;
   background: var(--accent);
   border-radius: 2px;
+  opacity: 0;
+  transform: scaleX(0.3);
+  /* starts smaller */
+  transform-origin: left;
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
 }
 
+.nav-menu a:hover::after,
+.nav-menu a.active::after {
+  opacity: 1;
+  transform: scaleX(1);
+  /* grow to full size */
+}
+
+/*  */
 .theme-toggle {
+  position: relative;
+  /* important for absolute positioning */
+  width: 2.2rem;
+  /* adjust to your preference */
+  height: 2.2rem;
+  padding: 0;
   background: none;
   border: none;
-  font-size: 1.4rem;
   cursor: pointer;
-  color: var(--text-muted);
-  transition: color 0.2s, transform 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.theme-toggle:hover {
-  color: var(--text);
-  transform: scale(1.15);
+.theme-icon {
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  position: absolute;
+  /* overlap both icons */
+  top: -5px;
+  left: 0;
 }
 
+/* Default: show moon first (light mode or no preference yet) */
+.icon-sun {
+  opacity: 0;
+}
+
+.icon-moon {
+  opacity: 1;
+}
+
+/* When dark mode is active → show sun, hide moon */
+[data-theme="dark"] .icon-sun {
+  opacity: 1;
+}
+
+[data-theme="dark"] .icon-moon {
+  opacity: 0;
+}
+
+/* Optional: nice little rotation/flip effect on switch */
+[data-theme="dark"] .icon-sun {
+  transform: rotate(0deg);
+}
+
+[data-theme="light"] .icon-moon {
+  transform: rotate(0deg);
+}
+
+/* You can experiment with: transform: rotate(180deg); or scale(0.9) etc. */
+.theme-icon {
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+[data-theme="dark"] .icon-sun {
+  transform: rotate(45deg);
+}
+
+[data-theme="light"] .icon-moon {
+  transform: rotate(-45deg);
+}
+
+/* Light mode – make moon dark/black */
+[data-theme="light"] .icon-moon {
+  filter: brightness(0) saturate(100%);
+  /* ≈ black */
+}
+
+/* Dark mode – make sun white/bright */
+[data-theme="dark"] .icon-sun {
+  filter: brightness(0) invert(1);
+  /* black → white */
+}
+
+/*  */
 /* Mobile – hide menu for now (you can add hamburger later) */
 @media (max-width: 768px) {
   .nav-menu {
