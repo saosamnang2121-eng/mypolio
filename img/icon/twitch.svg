@@ -1,18 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="Layer_7" data-name="Layer 7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+<svg id="Layer_6" data-name="Layer 6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
   <defs>
     <style>
-      .cls-1, .cls-2 {
+      .cls-1 {
         fill: #25314c;
-      }
-
-      .cls-2 {
-        opacity: .4;
       }
     </style>
   </defs>
-  <g id="twitch">
-    <path class="cls-1" d="m7.86,4.29v9.64h2.57v2.57l2.57-2.57h3.14l2.57-2.57v-7.07H7.86Zm5.14,6.42h-1.29v-3.85h1.29v3.85Zm3.21,0h-1.28v-3.85h1.28v3.85Z"/>
-    <path class="cls-2" d="m7.21,3l-3.21,3.21v11.58h3.86v3.21l3.21-3.21h3.14l5.79-5.79V3H7.21Zm11.5,8.36l-2.57,2.57h-3.14l-2.57,2.57v-2.57h-2.57V4.29h10.85v7.07Zm-2.5-4.5v3.85h-1.28v-3.85h1.28Zm-3.21,0v3.85h-1.29v-3.85h1.29Z"/>
-  </g>
+  <path id="twitch" class="cls-1" d="m7.214,3l-3.214,3.214v11.571h3.857v3.214l3.214-3.214h3.143l5.786-5.786V3H7.214Zm11.5,8.357l-2.572,2.571h-3.143l-2.571,2.571v-2.571h-2.571V4.286h10.857v7.071Zm-7-4.5h1.286v3.857h-1.286v-3.857Zm4.5,0v3.857h-1.286v-3.857h1.286Z"/>
 </svg>

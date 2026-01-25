@@ -53,3 +53,29 @@ toggleBtn.addEventListener('click', () => {
   // After changing theme
   updateLogo();
 });
+
+// Language toggle
+const flagToggle = document.querySelector('.flag-toggle');
+
+// Detect current language (browser default or saved)
+let currentLang = localStorage.getItem('lang') || 
+                  document.documentElement.lang || 
+                  navigator.language.startsWith('km') ? 'km' : 'en';
+
+function setLanguage(lang) {
+  document.documentElement.lang = lang;
+  localStorage.setItem('lang', lang);
+  
+  // Optional: here you would reload content / change texts / i18n library call
+  // For now just visual toggle
+  console.log('Language switched to:', lang);
+}
+
+flagToggle.addEventListener('click', () => {
+  const nextLang = currentLang === 'km' ? 'en' : 'km';
+  currentLang = nextLang;
+  setLanguage(nextLang);
+});
+
+// Set initial state
+setLanguage(currentLang);

@@ -163,7 +163,7 @@ body::before {
 .nav-menu a {
   color: var(--text-muted);
   text-decoration: none;
-  font-size: 1.05rem;
+  font-size: 1rem;
   padding: 0.5rem 0.3rem;
   transition: color 0.2s;
   position: relative;
@@ -196,7 +196,15 @@ body::before {
 }
 
 /*  */
-.theme-toggle {
+.nav-theme-flag {
+  display: flex;
+  gap: 1.5rem;
+  align-items: end;
+  position: relative;
+  top: -5px;
+}
+.theme-toggle,
+.flag-toggle  {
   position: relative;
   /* important for absolute positioning */
   width: 2.2rem;
@@ -245,7 +253,7 @@ body::before {
 }
 
 [data-theme="light"] .icon-moon {
-  transform: rotate(0deg);
+  transform: rotate(-45deg);
 }
 
 /* You can experiment with: transform: rotate(180deg); or scale(0.9) etc. */
@@ -258,22 +266,71 @@ body::before {
 }
 
 [data-theme="light"] .icon-moon {
-  transform: rotate(-45deg);
+  transform: rotate(20deg);
 }
 
 /* Light mode – make moon dark/black */
-[data-theme="light"] .icon-moon {
+/* [data-theme="light"] .icon-moon {
   filter: brightness(0) saturate(100%);
-  /* ≈ black */
-}
+} */
 
 /* Dark mode – make sun white/bright */
 [data-theme="dark"] .icon-sun {
   filter: brightness(0) invert(1);
-  /* black → white */
 }
 
-/*  */
+.flag-icon {
+  width: auto;
+  height: 30px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  /* smooth fade + optional rotate */
+}
+
+[data-theme="light"] .icon-sun {
+  opacity: 0;
+}
+
+[data-theme="light"] .icon-moon {
+  opacity: 1;
+}
+
+/* === Flag toggle logic === */
+
+/* Default: show US/English flag (or change if Khmer is default) */
+.flag-en {
+  opacity: 1;
+}
+
+.flag-kh {
+  opacity: 0;
+}
+
+/* When Khmer is active → show Cambodia flag, hide US */
+html[lang="km"] .flag-en {
+  opacity: 0;
+}
+
+html[lang="km"] .flag-kh {
+  opacity: 1;
+}
+
+/* Optional: nice little spin/scale effect on switch */
+html[lang="km"] .flag-kh {
+  transform: rotate(0deg) scale(1);
+}
+
+.flag-en {
+  transform: rotate(0deg) scale(1);
+}
+
+/* You can add hover feedback */
+.flag-toggle:hover .flag-icon {
+  transition: transform 0.25s ease;
+}
+
 /* Mobile – hide menu for now (you can add hamburger later) */
 @media (max-width: 768px) {
   .nav-menu {
