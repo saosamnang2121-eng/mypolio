@@ -57,25 +57,60 @@ toggleBtn.addEventListener('click', () => {
 // Language toggle
 const flagToggle = document.querySelector('.flag-toggle');
 
-// Detect current language (browser default or saved)
-let currentLang = localStorage.getItem('lang') || 
-                  document.documentElement.lang || 
-                  navigator.language.startsWith('km') ? 'km' : 'en';
+// i18n.js (or at bottom of your main script)
+const translations = {};
+let currentLang = localStorage.getItem('lang') || 'en'; // default English
 
-function setLanguage(lang) {
-  document.documentElement.lang = lang;
-  localStorage.setItem('lang', lang);
-  
-  // Optional: here you would reload content / change texts / i18n library call
-  // For now just visual toggle
-  console.log('Language switched to:', lang);
+async function loadTranslations() {
+  if (Object.keys(translations).length > 0) return; // already loaded
+
+  const en = await fetch('translations/en.json').then(r => r.json());
+  const km = await fetch('translations/km.json').then(r => r.json());
+
+  translations['en'] = en;
+  translations['km'] = km;
 }
 
-flagToggle.addEventListener('click', () => {
-  const nextLang = currentLang === 'km' ? 'en' : 'km';
-  currentLang = nextLang;
-  setLanguage(nextLang);
+function t(key) {
+  return translations[currentLang]?.[key] || translations['en'][key] || key;
+}
+
+function setLanguage(lang) {
+  currentLang = lang;
+  localStorage.setItem('lang', lang);
+  document.documentElement.lang = lang;           // helps screen readers + SEO
+  document.body.setAttribute('data-lang', lang);  // optional for CSS targeting
+  updateAllText();
+}
+
+function updateAllText() {
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    el.textContent = t(key);
+  });
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    el.textContent = t(el.getAttribute('data-i18n'));
+  });
+
+  // Add this for title attributes
+  document.querySelectorAll('[data-i18n-title]').forEach(el => {
+    el.title = t(el.getAttribute('data-i18n-title'));
+  });
+
+  // Also update flag visibility (your existing toggle)
+  const flagToggle = document.querySelector('.flag-toggle');
+  if (flagToggle) {
+    // your CSS already handles visibility via html[lang="km"]
+  }
+}
+
+// Initialize
+loadTranslations().then(() => {
+  setLanguage(currentLang);
 });
 
-// Set initial state
-setLanguage(currentLang);
+// Your flag toggle (update your existing listener)
+document.querySelector('.flag-toggle')?.addEventListener('click', () => {
+  const next = currentLang === 'km' ? 'en' : 'km';
+  setLanguage(next);
+});
