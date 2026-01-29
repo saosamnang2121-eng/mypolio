@@ -1,75 +1,139 @@
 <!doctype html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>mypolio</title>
-  <link rel="icon" href="img/logo/mypolio.png" type="image/svg+xml">
-  <!--  -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playwrite+GB+J+Guides:ital@0;1&display=swap"
-    rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
-  <link rel="stylesheet" href="css/index.css" />
-  <script src="js/index.js" defer></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <!--  -->
-</head>
-
-<body>
-  <div class="shape s1"></div>
-  <div class="shape s2"></div>
-  <div class="shape s3"></div>
-  <nav class="nav">
-    <nav class="navbar">
-      <!-- Left: Logo -->
-      <a href="#" class="logo">
-        <!-- Light mode logo (default / visible in light) -->
-        <img src="img/logo/mypolio-logo.png" class="logo-light" alt="MyPolio Logo">
-
-        <!-- Dark mode logo (hidden by default) -->
-        <img src="img/logo/mypolio-logo-white.png" class="logo-dark" alt="MyPolio Logo">
-      </a>
-
-      <!-- Middle: Menu -->
-      <ul class="nav-menu">
-        <li><a data-i18n="home" href="#home" class="active">Home</a></li>
-        <li><a data-i18n="services" href="#service">Services</a></li>
-        <li><a data-i18n="coding_channel" href="#codingch">Coding Channel</a></li>
-        <li><a data-i18n="about_owner" href="#owner">About Owner</a></li>
-        <li><a data-i18n="contact" href="#contact">Contact</a></li>
-      </ul>
-
-      <!-- Right: Theme toggle -->
-      <nav class="nav-theme-flag">
-      <button class="theme-toggle" data-i18n-title="toggle_theme" aria-label="Toggle theme">
-        <!-- Sun icon – visible when in DARK mode (means: click to go light) -->
-        <img src="img/icon/sun.svg" class="theme-icon icon-sun" alt aria-hidden="true">
-
-        <!-- Moon icon – visible when in LIGHT mode (means: click to go dark) -->
-        <img src="img/icon/moon.svg" class="theme-icon icon-moon" alt aria-hidden="true">
-      </button>
-      <!-- Right: flag toggle -->
-      <!-- Language/flag toggle -->
-      <button class="flag-toggle" data-i18n-title="flag_toggle_title" aria-label="Switch language">
-        <!-- Cambodian flag – shown when language is Khmer -->
-        <img src="img/icon/cambodia-flag.svg" class="flag-icon flag-kh" alt="Khmer" aria-hidden="true">
-
-        <!-- US/English flag – shown when language is English -->
-        <img src="img/icon/us-flag.svg" class="flag-icon flag-en" alt="English" aria-hidden="true">
-      </button>
-    </nav>
-    </nav>
-    
-  </nav>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mypolio</title>
+    <link rel="icon" href="img/logo/mypolio.png" type="image/svg+xml">
     <!--  -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playwrite+GB+J+Guides:ital@0;1&display=swap"
+      rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/index.css" />
+    <script src="js/index.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <!--  -->
+  </head>
+
+  <body>
+      <div class="shape s1"></div>
+      <div class="shape s2"></div>
+      <div class="shape s3"></div>
+
+      <nav class="nav">
+        <nav class="navbar">
+          <!-- Left: Logo -->
+          <a href="#home" class="logo">
+            <!-- Light mode logo (default / visible in light) -->
+            <img src="img/logo/mypolio-logo.png" class="logo-light"
+              alt="MyPolio Logo">
+
+            <!-- Dark mode logo (hidden by default) -->
+            <img src="img/logo/mypolio-logo-white.png" class="logo-dark"
+              alt="MyPolio Logo">
+          </a>
+
+          <!-- Middle: Menu -->
+          <ul class="nav-menu">
+            <li><a data-i18n="home" href="#home" class="active">Home</a></li>
+            <li><a data-i18n="services" href="#service">Services</a></li>
+            <li><a data-i18n="tools" href="#tools">Tools</a></li>
+            <li><a data-i18n="coding_channel" href="#codingch">Coding
+                Channel</a></li>
+            <li><a data-i18n="about_owner" href="#owner">About Owner</a></li>
+            <li><a data-i18n="contact" href="#contact">Contact</a></li>
+          </ul>
+
+          <!-- Right: Theme toggle -->
+          <nav class="nav-theme-flag">
+            <button class="theme-toggle" data-i18n-title="toggle_theme"
+              aria-label="Toggle theme">
+              <!-- Sun icon – visible when in DARK mode (means: click to go light) -->
+              <img src="img/icon/sun.svg" class="theme-icon icon-sun" alt
+                aria-hidden="true">
+
+              <!-- Moon icon – visible when in LIGHT mode (means: click to go dark) -->
+              <img src="img/icon/moon.svg" class="theme-icon icon-moon" alt
+                aria-hidden="true">
+            </button>
+            <!-- Right: flag toggle -->
+            <!-- Language/flag toggle -->
+            <button class="flag-toggle" data-i18n-title="flag_toggle_title"
+              aria-label="Switch language">
+              <!-- Cambodian flag – shown when language is Khmer -->
+              <img src="img/icon/cambodia-flag.svg" class="flag-icon flag-kh"
+                alt="Khmer" aria-hidden="true">
+
+              <!-- US/English flag – shown when language is English -->
+              <img src="img/icon/us-flag.svg" class="flag-icon flag-en"
+                alt="English" aria-hidden="true">
+            </button>
+          </nav>
+        </nav>
+
+      </nav>
+      <!-- Main content – each menu item has its own <section id="..."> -->
+      <main class="sections-container">
+        <section id="home">
+          <div class="home-container">
+            <div class="row">
+              <div class="col-md-6">
+                <h2 data-i18n="heyy..!">Hey..! What are you looking for</h2>
+                <h4>Maybe you see something in there🔥.</h4>
+                <p data-i18n="welcome_description">
+                  Your one-stop solution for web development, coding tutorials,
+                  and tech services.
+                </p>
+                <a href="#services" class="btn btn-primary"
+                  data-i18n="explore_services">Explore Services</a>
+              </div>
+              <div class="col-md-6 home-image">
+                <img src="img/img_content/looking-icon.svg" alt>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="services">
+          <h2 data-i18n="services">Services</h2>
+          <p>Your services content goes here...</p>
+          <!-- add cards, lists, images, etc. -->
+        </section>
+
+        <section id="tools">
+          <h2 data-i18n="tools">Tools</h2>
+          <p>Your tools content...</p>
+        </section>
+
+        <section id="coding-channel">
+          <h2 data-i18n="coding_channel">Coding Channel</h2>
+          <p>Embed YouTube, videos, tutorials...</p>
+        </section>
+
+        <section id="about-owner">
+          <h2 data-i18n="about_owner">About Owner</h2>
+          <p>Your bio, photo, etc...</p>
+        </section>
+
+        <section id="contact">
+          <h2 data-i18n="contact">Contact</h2>
+          <form><!-- your contact form --></form>
+        </section>
+
+      </main>
+    <!--  -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
       crossorigin="anonymous"></script>
-</body>
+  </body>
 
 </html>

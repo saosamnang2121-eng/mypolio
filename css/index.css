@@ -1,3 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background: #0a0015;
+  overflow-x:hidden ;
+  position: relative;
+  color: #e0e0ff;
+  transition: background 0.6s ease, color 0.6s ease;
+  background-attachment: fixed;       /* pins bg to viewport */
+  background-size: cover;             /* or contain – test what looks best */
+  background-position: center;
+  background-repeat: repeat-y;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 0;
+  /* smooth theme change */
+}
+
+/* Base gradient + subtle noise */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 50%, var(--bg-start) 0%, var(--bg-mid) 70%, var(--bg-end) 100%);
+  opacity: var(--noise-opacity);
+  pointer-events: none;
+  transition: opacity 0.8s ease;
+  /* gentle fade for the overlay */
+  z-index: -1;
+}
+
 :root {
   --bg-start: #2a0066;
   --bg-mid: #000814;
@@ -25,6 +62,7 @@
   /* optional visual hint during switch */
 
 }
+
 /* When language is Khmer → switch font for the whole page */
 html[lang="km"],
 :lang(km) {
@@ -33,49 +71,23 @@ html[lang="km"],
 
 /* Optional: finer control – only apply to Khmer text elements */
 [data-lang="km"] [lang="km"],
-[data-lang="km"] p{
+[data-lang="km"] p {
   font-family: "Kantumruy", sans-serif;
 }
 
 /* Optional: adjust size / line-height for better Khmer readability */
 html[lang="km"] {
-  --khmer-line-height: 1.6;   /* Khmer often needs more space */
+  --khmer-line-height: 1.6;
+  /* Khmer often needs more space */
 }
+
 html[lang="km"] .nav-menu a {
   font-family: "Kantumruy Pro", sans-serif;
   font-weight: 500;
   font-size: 1rem;
 }
+
 /*  */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  height: 100vh;
-  background: #0a0015;
-  overflow: hidden;
-  position: relative;
-  font-family: system-ui, sans-serif;
-  color: #e0e0ff;
-  transition: background 0.6s ease, color 0.6s ease;
-  /* smooth theme change */
-}
-
-/* Base gradient + subtle noise */
-body::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at 50% 50%, var(--bg-start) 0%, var(--bg-mid) 70%, var(--bg-end) 100%);
-  opacity: var(--noise-opacity);
-  pointer-events: none;
-  transition: opacity 0.8s ease;
-  /* gentle fade for the overlay */
-}
-
 /* Floating abstract shapes (triangles, hex, etc.) */
 .shape {
   position: absolute;
@@ -84,6 +96,7 @@ body::before {
   backdrop-filter: blur(4px);
   pointer-events: none;
   animation: float 25s ease-in-out infinite;
+  z-index: 1;
 }
 
 .s1 {
@@ -126,16 +139,21 @@ body::before {
 }
 
 /* Menu styles */
-.nav{
+.nav {
+  width: 100%;
+  position: fixed;
+  top: 0px;
   height: 70px;
+  z-index: 2000;
+  margin-bottom: 20px;
 }
+
 .navbar {
   width: 100%;
   height: 70px;
   padding: 0 2.5rem;
   /* background: var(--bg);
   border-bottom: 1px solid var(--border); */
-  position: sticky;
   top: 0;
   z-index: 1000;
   display: flex;
@@ -189,6 +207,7 @@ body::before {
   gap: 2.8rem;
   list-style: none;
 }
+
 .nav-menu a {
   color: var(--text-muted);
   text-decoration: none;
@@ -232,8 +251,9 @@ body::before {
   position: relative;
   top: -5px;
 }
+
 .theme-toggle,
-.flag-toggle  {
+.flag-toggle {
   position: relative;
   /* important for absolute positioning */
   width: 2.2rem;
@@ -365,4 +385,20 @@ html[lang="km"] .flag-kh {
   .nav-menu {
     display: none;
   }
+}
+
+/*  */
+.sections-container {
+  display: block;
+  width: 100%;
+  padding: 0 2.5rem;
+  z-index: 10;
+}
+
+section#home {
+  align-items: left;
+  justify-content: left;
+  text-align: left;
+  width: 100%;
+  height: calc(100vh - 70px);
 }
