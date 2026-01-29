@@ -1,3 +1,26 @@
+:root {
+  --bg-start: #2a0066;
+  --bg-mid: #000814;
+  --bg-end: #000000;
+  --text: #ffffff;
+  --text-muted: #ffffff;
+  --accent: #4ea8de;
+  --border: #222;
+  --noise-opacity: 0.9;
+  --navbar-bg: rgba(10, 0, 21, 0.4);
+}
+
+[data-theme="light"] {
+  --bg-start: #f8f9fa;
+  --bg-mid: #f8f9fa;
+  --bg-end: #f8f9fa;
+  --text: #0f1bff;
+  --text-muted: #0066cc;
+  --accent: #0066cc;
+  --border: #ddd;
+  --noise-opacity: 0.9;
+  --navbar-bg: rgba(255, 255, 255, 0.4);
+}
 * {
   margin: 0;
   padding: 0;
@@ -8,17 +31,12 @@ body {
   width: 100vw;
   height: 100vh;
   background: #0a0015;
-  overflow-x:hidden ;
+  overflow-x: hidden;
   position: relative;
   color: #e0e0ff;
   transition: background 0.6s ease, color 0.6s ease;
-  background-attachment: fixed;       /* pins bg to viewport */
-  background-size: cover;             /* or contain – test what looks best */
-  background-position: center;
-  background-repeat: repeat-y;
-  overflow-y: auto;
-  overflow-x: hidden;
   z-index: 0;
+  padding-top: 80px;
   /* smooth theme change */
 }
 
@@ -33,28 +51,6 @@ body::before {
   transition: opacity 0.8s ease;
   /* gentle fade for the overlay */
   z-index: -1;
-}
-
-:root {
-  --bg-start: #2a0066;
-  --bg-mid: #000814;
-  --bg-end: #000000;
-  --text: #ffffff;
-  --text-muted: #ffffff;
-  --accent: #4ea8de;
-  --border: #222;
-  --noise-opacity: 0.9;
-}
-
-[data-theme="light"] {
-  --bg-start: #f8f9fa;
-  --bg-mid: #f8f9fa;
-  --bg-end: #f8f9fa;
-  --text: #0f1bff;
-  --text-muted: #0066cc;
-  --accent: #0066cc;
-  --border: #ddd;
-  --noise-opacity: 0.9;
 }
 
 /*  */
@@ -90,13 +86,13 @@ html[lang="km"] .nav-menu a {
 /*  */
 /* Floating abstract shapes (triangles, hex, etc.) */
 .shape {
-  position: absolute;
+  position: fixed;
   border: 1px solid rgba(147, 197, 253, 0.2);
   background: linear-gradient(135deg, rgba(124, 58, 237, 0.08), transparent);
   backdrop-filter: blur(4px);
   pointer-events: none;
   animation: float 25s ease-in-out infinite;
-  z-index: 1;
+  z-index: 2;
 }
 
 .s1 {
@@ -106,6 +102,7 @@ html[lang="km"] .nav-menu a {
   top: 20%;
   left: 25%;
   animation-delay: 0s;
+  z-index: 2;
 }
 
 .s2 {
@@ -115,6 +112,7 @@ html[lang="km"] .nav-menu a {
   top: 55%;
   right: 20%;
   animation-delay: 8s;
+  z-index: 2;
 }
 
 .s3 {
@@ -124,6 +122,7 @@ html[lang="km"] .nav-menu a {
   bottom: 15%;
   left: 15%;
   animation-delay: 12s;
+  z-index: 2;
 }
 
 @keyframes float {
@@ -141,7 +140,7 @@ html[lang="km"] .nav-menu a {
 /* Menu styles */
 .nav {
   width: 100%;
-  position: fixed;
+  position: absolute;
   top: 0px;
   height: 70px;
   z-index: 2000;
@@ -152,13 +151,16 @@ html[lang="km"] .nav-menu a {
   width: 100%;
   height: 70px;
   padding: 0 2.5rem;
-  /* background: var(--bg);
-  border-bottom: 1px solid var(--border); */
   top: 0;
   z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  /* Glassmorphism core */
+  /* background: var(--navbar-bg);
+  backdrop-filter: blur(12px);        
+  -webkit-backdrop-filter: blur(12px); 
+  transition: background 0.4s ease, backdrop-filter 0.4s ease; */
 }
 
 .logo {
@@ -389,8 +391,10 @@ html[lang="km"] .flag-kh {
 
 /*  */
 .sections-container {
+  position: relative;
   display: block;
   width: 100%;
+  height: auto;
   padding: 0 2.5rem;
   z-index: 10;
 }
