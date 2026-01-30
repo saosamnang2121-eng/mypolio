@@ -1,0 +1,121 @@
+:root {
+  --bg-start: #2a0066;
+  --bg-mid: #000814;
+  --bg-end: #000000;
+  --text: #ffffff;
+  --text-muted: #ffffff;
+  --accent: #4ea8de;
+  --border: #222;
+  --noise-opacity: 0.9;
+  --navbar-bg: rgba(10, 0, 21, 0.4);
+  --color-btn: #ffffff;
+}
+
+[data-theme="light"] {
+  --bg-start: #f8f9fa;
+  --bg-mid: #f8f9fa;
+  --bg-end: #f8f9fa;
+  --text: #0f1bff;
+  --text-muted: #0066cc;
+  --accent: #0066cc;
+  --border: #ddd;
+  --noise-opacity: 0.9;
+  --navbar-bg: rgba(255, 255, 255, 0.4);
+   --color-btn: #ffffff;
+}
+
+/*  */
+[data-lang="km"] [data-i18n]:not(:lang(km)) {
+  /* optional visual hint during switch */
+
+}
+
+/* When language is Khmer → switch font for the whole page */
+html[lang="km"],
+:lang(km) {
+  font-family: "Kantumruy", sans-serif;
+}
+
+/* Optional: finer control – only apply to Khmer text elements */
+[data-lang="km"] [lang="km"],
+[data-lang="km"] p {
+  font-family: "Kantumruy", sans-serif;
+}
+
+/* Optional: adjust size / line-height for better Khmer readability */
+html[lang="km"] {
+  --khmer-line-height: 1.6;
+  /* Khmer often needs more space */
+}
+
+html[lang="km"] .nav-menu a {
+  font-family: "Kantumruy Pro", sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+/*  */
+/* When Khmer is active → show Cambodia flag, hide US */
+html[lang="km"] .flag-en {
+  opacity: 0;
+}
+
+html[lang="km"] .flag-kh {
+  opacity: 1;
+}
+
+/* Optional: nice little spin/scale effect on switch */
+html[lang="km"] .flag-kh {
+  transform: rotate(0deg) scale(1);
+}
+html[lang="km"] section#home .home-container .row .btn {
+  font-family: "Kantumruy Pro", sans-serif;
+}
+html[lang="km"] section#home .home-container .row .welcome_text,
+html[lang="km"] section#home .home-container .row .welcome_description{
+  font-family: "Kantumruy Pro","IBM Plex Mono", monospace, sans-serif;
+}
+html[lang="km"] section#home .home-container .row .welcome_text{
+    line-height: 1.5;
+}
+
+/* Fade-up animation for home section elements */
+.welcome_text,
+.welcome_description,
+.explore-image img {
+  opacity: 0;
+  transform: translateY(60px);           /* start lower */
+  transition: opacity 1s ease-out, transform 1s ease-out;
+  will-change: opacity, transform;       /* better performance */
+}
+
+/* When visible: fade in + slide up */
+.welcome_text.visible,
+.welcome_description.visible,
+.explore-image.visible img {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger the timing naturally (heading first, then description, then image) */
+.welcome_text.visible {
+  transition-delay: 0.1s;
+}
+
+.welcome_description.visible {
+  transition-delay: 0.4s;
+}
+
+.explore-image.visible img {
+  transition-delay: 0.7s;
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94); /* smooth easeOut */
+}
+
+/* Optional: slight scale for image to feel more "alive" */
+.explore-image img {
+  transform: translateY(60px) scale(0.92);
+}
+
+.explore-image.visible img {
+  transform: translateY(0) scale(1);
+}

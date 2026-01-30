@@ -114,3 +114,51 @@ document.querySelector('.flag-toggle')?.addEventListener('click', () => {
   const next = currentLang === 'km' ? 'en' : 'km';
   setLanguage(next);
 });
+
+// Animate on scroll using Intersection Observer
+document.addEventListener('DOMContentLoaded', () => {
+  const elements = document.querySelectorAll('.animate-on-scroll');
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+
+          // Optional: stop observing after animation (performance)
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.15,          // start when 15% visible
+      rootMargin: '0px 0px -10% 0px' // slight offset
+    }
+  );
+
+  elements.forEach(el => observer.observe(el));
+});
+
+// Fade-up on scroll – super lightweight
+document.addEventListener('DOMContentLoaded', () => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          // Optional: stop observing after animation (better performance)
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.15,               // start when ~15% visible
+      rootMargin: '0px 0px -60px 0px' // slight top offset
+    }
+  );
+
+  // Watch exactly your elements (no extra classes needed)
+  document.querySelectorAll('.welcome_text, .welcome_description, .explore-image').forEach(el => {
+    observer.observe(el);
+  });
+});

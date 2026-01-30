@@ -8,6 +8,8 @@
   --border: #222;
   --noise-opacity: 0.9;
   --navbar-bg: rgba(10, 0, 21, 0.4);
+  --bg-hover: #ff8d50;
+  --color-btn: #ffffff;
 }
 
 [data-theme="light"] {
@@ -20,6 +22,8 @@
   --border: #ddd;
   --noise-opacity: 0.9;
   --navbar-bg: rgba(255, 255, 255, 0.4);
+   --color-btn: #ffffff;
+   --bg-hover: #ff8d50;
 }
 * {
   margin: 0;
@@ -52,38 +56,6 @@ body::before {
   /* gentle fade for the overlay */
   z-index: -1;
 }
-
-/*  */
-[data-lang="km"] [data-i18n]:not(:lang(km)) {
-  /* optional visual hint during switch */
-
-}
-
-/* When language is Khmer → switch font for the whole page */
-html[lang="km"],
-:lang(km) {
-  font-family: "Kantumruy", sans-serif;
-}
-
-/* Optional: finer control – only apply to Khmer text elements */
-[data-lang="km"] [lang="km"],
-[data-lang="km"] p {
-  font-family: "Kantumruy", sans-serif;
-}
-
-/* Optional: adjust size / line-height for better Khmer readability */
-html[lang="km"] {
-  --khmer-line-height: 1.6;
-  /* Khmer often needs more space */
-}
-
-html[lang="km"] .nav-menu a {
-  font-family: "Kantumruy Pro", sans-serif;
-  font-weight: 500;
-  font-size: 1rem;
-}
-
-/*  */
 /* Floating abstract shapes (triangles, hex, etc.) */
 .shape {
   position: fixed;
@@ -144,7 +116,7 @@ html[lang="km"] .nav-menu a {
   top: 0px;
   height: 70px;
   z-index: 2000;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
 }
 
 .navbar {
@@ -359,20 +331,6 @@ html[lang="km"] .nav-menu a {
   opacity: 0;
 }
 
-/* When Khmer is active → show Cambodia flag, hide US */
-html[lang="km"] .flag-en {
-  opacity: 0;
-}
-
-html[lang="km"] .flag-kh {
-  opacity: 1;
-}
-
-/* Optional: nice little spin/scale effect on switch */
-html[lang="km"] .flag-kh {
-  transform: rotate(0deg) scale(1);
-}
-
 .flag-en {
   transform: rotate(0deg) scale(1);
 }
@@ -400,9 +358,58 @@ html[lang="km"] .flag-kh {
 }
 
 section#home {
-  align-items: left;
-  justify-content: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: left;
   width: 100%;
-  height: calc(100vh - 70px);
+  min-height: 90vh;
 }
+section#home .home-container .row .welcome_text {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+section#home .home-container .row .welcome_description {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--text);
+  /* max-width: 700px; */
+}
+section#home .home-container .row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+section#home .home-container .row .btn {
+  display: inline-block;
+  font-size: 1rem;
+  margin-top: 0.8rem;
+  font-weight: 600;
+  padding: 8px 15px;
+  color: var(--color-btn);
+  background-color: var(--accent);
+  border: none;
+  border-radius: 1px;
+  text-decoration: none;
+  font-family: "IBM Plex Mono", monospace;
+  transition: background-color 0.6s ease, color 0.6s ease;
+}
+section#home .home-container .row .btn:hover {
+  background-color: var(--bg-hover);
+}
+section#home .home-container .row .explore-image {
+  text-align: center;
+  overflow: hidden;
+}
+section#home .home-container .row .explore-image img {
+  width: 100%;
+  max-width: 600px;
+  object-fit: cover;
+}
+
+
+

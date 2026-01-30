@@ -18,6 +18,7 @@
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
       crossorigin="anonymous" />
     <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/translate.css" />
     <script src="js/index.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <!--  -->
@@ -85,24 +86,22 @@
         <section id="home">
           <div class="home-container">
             <div class="row">
-              <div class="col-md-6">
-                <h2 data-i18n="heyy..!">Hey..! What are you looking for</h2>
-                <h4>Maybe you see something in there🔥.</h4>
-                <p data-i18n="welcome_description">
-                  Your one-stop solution for web development, coding tutorials,
-                  and tech services.
+              <div class="col-sm-12 col-md-6">
+                <h2 class="welcome_text " data-i18n="welcome_text">Hey..!What are you looking in there?</h2>
+                <p class="welcome_description" data-i18n="welcome_description">
+                  Are you looking for web application services, coding tutorials, tools that can help you, them or template for web development. Maybe you've come to the right place!
                 </p>
-                <a href="#services" class="btn btn-primary"
-                  data-i18n="explore_services">Explore Services</a>
+                <a href="#explore" class="btn btn-primary"
+                  data-i18n="explore_more">Explore More</a>
               </div>
-              <div class="col-md-6 home-image">
+              <div class="col-sm-12 col-md-6 explore-image">
                 <img src="img/img_content/looking-icon.svg" alt>
               </div>
             </div>
           </div>
         </section>
 
-        <section id="services">
+        <section id="explore">
           <h2 data-i18n="services">Services</h2>
           <p>Your services content goes here...</p>
           <!-- add cards, lists, images, etc. -->
