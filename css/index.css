@@ -22,9 +22,10 @@
   --border: #ddd;
   --noise-opacity: 0.9;
   --navbar-bg: rgba(255, 255, 255, 0.4);
-   --color-btn: #ffffff;
-   --bg-hover: #ff8d50;
+  --color-btn: #ffffff;
+  --bg-hover: #ff8d50;
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -56,6 +57,7 @@ body::before {
   /* gentle fade for the overlay */
   z-index: -1;
 }
+
 /* Floating abstract shapes (triangles, hex, etc.) */
 .shape {
   position: fixed;
@@ -364,32 +366,40 @@ section#home {
   text-align: left;
   width: 100%;
   min-height: 90vh;
+  margin-bottom: 10px;
 }
-section#home .home-container .row .welcome_text {
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 3.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  color: var(--text);
-}
-section#home .home-container .row .welcome_description {
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 1.2rem;
-  line-height: 1.6;
-  color: var(--text);
-  /* max-width: 700px; */
-}
+
 section#home .home-container .row {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-section#home .home-container .row .btn {
-  display: inline-block;
-  font-size: 1rem;
-  margin-top: 0.8rem;
-  font-weight: 600;
-  padding: 8px 15px;
+
+/* Heading – fluid: min 2rem (~32px), preferred ~5–8vw, max 4.5rem (~72px) */
+.welcome_text {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: clamp(2rem, 6vw + 0.5rem, 3rem);
+  /* scales nicely */
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text);
+  line-height: 1.1;
+  /* tighter for big headings */
+}
+
+/* Description paragraph – more restrained */
+.welcome_description {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: clamp(1rem, 3.5vw + 0.3rem, 1.3rem);
+  /* min ~16px → max ~24px */
+  line-height: 1.6;
+  color: var(--text);
+}
+
+/* Button – also responsive */
+.btn.btn-primary {
+  font-size: clamp(0.7rem, 3vw, 1.25rem);
+  padding: clamp(0rem, 2vw, 0.4rem) clamp(1.2rem, 4vw, 1.5rem);
   color: var(--color-btn);
   background-color: var(--accent);
   border: none;
@@ -397,19 +407,85 @@ section#home .home-container .row .btn {
   text-decoration: none;
   font-family: "IBM Plex Mono", monospace;
   transition: background-color 0.6s ease, color 0.6s ease;
+  display: inline-block;
+  margin-top: 0.8rem;
 }
+
 section#home .home-container .row .btn:hover {
   background-color: var(--bg-hover);
 }
+
 section#home .home-container .row .explore-image {
   text-align: center;
   overflow: hidden;
 }
+
 section#home .home-container .row .explore-image img {
   width: 100%;
   max-width: 600px;
   object-fit: cover;
+  animation: shake-vertical-normal 20s ease-in-out 10s infinite normal both; 
 }
 
+@keyframes shake-vertical-normal {
 
+  0%,
+  100% {
+    transform: translateY(0);
+  }
 
+  10%,
+  30%,
+  50%,
+  70% {
+    transform: translateY(-8px);
+  }
+
+  20%,
+  40%,
+  60% {
+    transform: translateY(8px);
+  }
+
+  80% {
+    transform: translateY(6.4px);
+  }
+
+  90% {
+    transform: translateY(-6.4px);
+  }
+}
+
+/* Extra small screens (< 576px) - portrait mobile */
+@media (max-width: 575.98px) {
+  #home .row {
+    flex-direction: column-reverse;
+    /* ensure image is always on top */
+    gap: 1.5rem;
+    /* space between image and text */
+  }
+
+  .welcome_text {
+    /* smaller heading on tiny screens */
+    text-align: center;
+  }
+
+  .welcome_description {
+    text-align: center;
+  }
+
+  section#home .home-container .row .explore-image img {
+    width: 100%;
+    max-width: 250px;
+    /* prevent huge image on small phones */
+    margin: 0 auto;
+    /* center image */
+    display: block;
+  }
+
+  .btn.btn-primary {
+    width: 100%;
+    padding: 10px 0;
+    /* full-width button on XS */
+  }
+}
