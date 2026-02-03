@@ -162,3 +162,27 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(el);
   });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+  const toggle = document.querySelector('.menu-toggle');
+  const menu = document.querySelector('.nav-menu');
+
+  if (toggle && menu) {
+    toggle.addEventListener('click', function() {
+      menu.classList.toggle('active');
+      
+      // Optional: change icon to X when open (if you later add a close icon)
+      // const img = toggle.querySelector('img');
+      // img.src = menu.classList.contains('active') 
+      //   ? 'img/icon/close.svg' 
+      //   : 'img/icon/menu-right-alt.svg';
+    });
+
+    // Close menu when clicking a link (very common mobile behavior)
+    menu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.remove('active');
+      });
+    });
+  }
+});

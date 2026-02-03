@@ -7,7 +7,7 @@
   --accent: #4ea8de;
   --border: #222;
   --noise-opacity: 0.9;
-  --navbar-bg: rgba(10, 0, 21, 0.4);
+  --navbar-bg: #0a031d;
   --bg-hover: #ff8d50;
   --color-btn: #ffffff;
 }
@@ -21,7 +21,7 @@
   --accent: #0066cc;
   --border: #ddd;
   --noise-opacity: 0.9;
-  --navbar-bg: rgba(255, 255, 255, 0.4);
+  --navbar-bg: #ffffff;
   --color-btn: #ffffff;
   --bg-hover: #ff8d50;
 }
@@ -130,11 +130,75 @@ body::before {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* Glassmorphism core */
-  /* background: var(--navbar-bg);
-  backdrop-filter: blur(12px);        
-  -webkit-backdrop-filter: blur(12px); 
-  transition: background 0.4s ease, backdrop-filter 0.4s ease; */
+}
+/* Keep your existing .nav, .navbar, .nav-menu exactly as they are */
+
+/* Hide hamburger on large screens (you probably already have display:none somewhere, but just in case) */
+.menu-toggle {
+  position: relative;
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  width: 2.2rem;
+  height: 2.2rem;
+  top: -5px;
+  align-items: center;
+}
+
+/* Mobile menu – appears below navbar when opened */
+@media screen and (max-width: 890px) {   /* ← you can change 850px to 900px or 768px */
+  /* Show hamburger button */
+  .menu-toggle {
+    display: flex;
+    margin-right: 15px;
+  }
+  .nav-theme-flag{
+    z-index: 2001;
+  }
+  /* Hide normal horizontal menu */
+  .nav-menu {
+    display: flex;                      /* we keep display:flex always */
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50%;                         /* your desired menu width */
+    height: 100vh;
+    opacity: 1 !important;
+    background-color: var(--navbar-bg);
+    transform: translateX(100%);        /* starts fully off-screen to the right */
+    transition: transform 0.4s ease;    /* only transition the slide */
+    z-index: 1999;
+    padding: 80px 20px 20px 20px;
+    box-sizing: border-box;
+    opacity: 1;                         /* always visible when transformed */
+  }
+
+  .nav-menu.active {
+    transform: translateX(0);           /* slides in to normal position */
+  }
+
+  /* Optional: add slight shadow / overlay feel */
+  .nav-menu.active {
+    box-shadow: -8px 0 25px rgba(0,0,0,0.25);
+  }
+
+  .nav-menu li {
+    text-align: left;
+
+  }
+
+  .nav-menu li a {
+      font-size: 1rem;
+      padding: 0.5rem 0.3rem;
+  }
+
+  /* Optional: make whole navbar padding smaller on mobile if you want */
+  .navbar {
+    padding: 0 1.2rem;
+  }
 }
 
 .logo {
@@ -180,7 +244,7 @@ body::before {
 
 .nav-menu {
   display: flex;
-  gap: 2.8rem;
+  gap: 1rem;
   list-style: none;
 }
 
@@ -222,7 +286,7 @@ body::before {
 /*  */
 .nav-theme-flag {
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
   align-items: end;
   position: relative;
   top: -5px;
@@ -342,16 +406,9 @@ body::before {
   transition: transform 0.25s ease;
 }
 
-/* Mobile – hide menu for now (you can add hamburger later) */
-@media (max-width: 768px) {
-  .nav-menu {
-    display: none;
-  }
-}
-
 /*  */
 .sections-container {
-  position: relative;
+  position: absolute;
   display: block;
   width: 100%;
   height: auto;
@@ -390,7 +447,7 @@ section#home .home-container .row {
 /* Description paragraph – more restrained */
 .welcome_description {
   font-family: "IBM Plex Mono", monospace;
-  font-size: clamp(1rem, 3.5vw + 0.3rem, 1.3rem);
+  font-size: clamp(1rem, 2.5vw + 0.2rem, 1.5rem);
   /* min ~16px → max ~24px */
   line-height: 1.6;
   color: var(--text);
@@ -398,8 +455,7 @@ section#home .home-container .row {
 
 /* Button – also responsive */
 .btn.btn-primary {
-  font-size: clamp(0.7rem, 3vw, 1.25rem);
-  padding: clamp(0rem, 2vw, 0.4rem) clamp(1.2rem, 4vw, 1.5rem);
+  padding: clamp(0.4rem, 1.2vw + 0.2rem, 0.9rem) clamp(1.2rem, 2.5vw + 0.4rem, 1.8rem);
   color: var(--color-btn);
   background-color: var(--accent);
   border: none;
@@ -455,9 +511,18 @@ section#home .home-container .row .explore-image img {
     transform: translateY(-6.4px);
   }
 }
+/* Mobile – hide menu for now (you can add hamburger later) */
+@media (max-width: 768px) {
+  .sections-container{
+    margin-top: -30px;
+  }
+}
 
 /* Extra small screens (< 576px) - portrait mobile */
 @media (max-width: 575.98px) {
+  .sections-container{
+    margin-top: -25px;
+  }
   #home .row {
     flex-direction: column-reverse;
     /* ensure image is always on top */
@@ -482,10 +547,10 @@ section#home .home-container .row .explore-image img {
     /* center image */
     display: block;
   }
-
   .btn.btn-primary {
     width: 100%;
-    padding: 10px 0;
+    /* padding: 10px 0; */
+    /* font-size: 1.05rem; */
     /* full-width button on XS */
   }
 }

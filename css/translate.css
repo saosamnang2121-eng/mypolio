@@ -1,28 +1,4 @@
-:root {
-  --bg-start: #2a0066;
-  --bg-mid: #000814;
-  --bg-end: #000000;
-  --text: #ffffff;
-  --text-muted: #ffffff;
-  --accent: #4ea8de;
-  --border: #222;
-  --noise-opacity: 0.9;
-  --navbar-bg: rgba(10, 0, 21, 0.4);
-  --color-btn: #ffffff;
-}
 
-[data-theme="light"] {
-  --bg-start: #f8f9fa;
-  --bg-mid: #f8f9fa;
-  --bg-end: #f8f9fa;
-  --text: #0f1bff;
-  --text-muted: #0066cc;
-  --accent: #0066cc;
-  --border: #ddd;
-  --noise-opacity: 0.9;
-  --navbar-bg: rgba(255, 255, 255, 0.4);
-   --color-btn: #ffffff;
-}
 
 /*  */
 [data-lang="km"] [data-i18n]:not(:lang(km)) {
