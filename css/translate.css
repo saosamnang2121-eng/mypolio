@@ -55,6 +55,13 @@ html[lang="km"] section#home .home-container .row .welcome_text{
     line-height: 1.5;
 }
 
+html[lang="km"] section#explore .explore-row-txt-tp h2{
+    font-family: "Kantumruy Pro","IBM Plex Mono", monospace, sans-serif;
+}
+html[lang="km"] section#explore .explore-row-txt-tp p{
+    font-family: "Kantumruy Pro","IBM Plex Mono", monospace, sans-serif;
+    line-height: 1.7;
+}
 /* Fade-up animation for home section elements */
 .welcome_text,
 .welcome_description,

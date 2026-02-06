@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
   );
 
   // Watch exactly your elements (no extra classes needed)
-  document.querySelectorAll('.welcome_text, .welcome_description, .explore-image').forEach(el => {
+  document.querySelectorAll('.welcome_text, .welcome_description, .explore-image, .btn-explore').forEach(el => {
     observer.observe(el);
   });
 });
