@@ -172,10 +172,10 @@ document.addEventListener('DOMContentLoaded', function() {
       menu.classList.toggle('active');
       
       // Optional: change icon to X when open (if you later add a close icon)
-      // const img = toggle.querySelector('img');
-      // img.src = menu.classList.contains('active') 
-      //   ? 'img/icon/close.svg' 
-      //   : 'img/icon/menu-right-alt.svg';
+      const img = toggle.querySelector('img');
+      img.src = menu.classList.contains('active') 
+        ? 'img/icon/times.svg' 
+        : 'img/icon/menu-right-alt.svg';
     });
 
     // Close menu when clicking a link (very common mobile behavior)

@@ -7,7 +7,8 @@
   --accent: #4ea8de;
   --border: #222;
   --noise-opacity: 0.9;
-  --navbar-bg: #0a031d;
+  --navbar-bg: rgba(15, 23, 42, 0.75);     /* dark / slate */
+  --nav-menu: #0f0a2a;     /* dark / slate */
   --bg-hover: #ff8d50;
   --color-btn: #ffffff;
 }
@@ -21,7 +22,8 @@
   --accent: #0066cc;
   --border: #ddd;
   --noise-opacity: 0.9;
-  --navbar-bg: #ffffff;
+  --navbar-bg: rgba(255, 255, 255, 0.7);   /* light */
+  --nav-menu: rgb(226, 226, 234);   /* light */
   --color-btn: #ffffff;
   --bg-hover: #ff8d50;
 }
@@ -114,13 +116,13 @@ body::before {
 /* Menu styles */
 .nav {
   width: 100%;
-  position: absolute;
+  position: fixed;
   top: 0px;
   height: 70px;
   z-index: 2000;
+  
   /* margin-bottom: 20px; */
 }
-
 .navbar {
   width: 100%;
   height: 70px;
@@ -130,6 +132,8 @@ body::before {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: var(--navbar-bg);
+  backdrop-filter: blur(10px);
 }
 /* Keep your existing .nav, .navbar, .nav-menu exactly as they are */
 
@@ -145,60 +149,6 @@ body::before {
   height: 2.2rem;
   top: -5px;
   align-items: center;
-}
-
-/* Mobile menu – appears below navbar when opened */
-@media screen and (max-width: 890px) {   /* ← you can change 850px to 900px or 768px */
-  /* Show hamburger button */
-  .menu-toggle {
-    display: flex;
-    margin-right: 15px;
-  }
-  .nav-theme-flag{
-    z-index: 2001;
-  }
-  /* Hide normal horizontal menu */
-  .nav-menu {
-    display: flex;                      /* we keep display:flex always */
-    flex-direction: column;
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 50%;                         /* your desired menu width */
-    height: 100vh;
-    opacity: 1 !important;
-    background-color: var(--navbar-bg);
-    transform: translateX(100%);        /* starts fully off-screen to the right */
-    transition: transform 0.4s ease;    /* only transition the slide */
-    z-index: 1999;
-    padding: 80px 20px 20px 20px;
-    box-sizing: border-box;
-    opacity: 1;                         /* always visible when transformed */
-  }
-
-  .nav-menu.active {
-    transform: translateX(0);           /* slides in to normal position */
-  }
-
-  /* Optional: add slight shadow / overlay feel */
-  .nav-menu.active {
-    box-shadow: -8px 0 25px rgba(0,0,0,0.25);
-  }
-
-  .nav-menu li {
-    text-align: left;
-
-  }
-
-  .nav-menu li a {
-      font-size: 1rem;
-      padding: 0.5rem 0.3rem;
-  }
-
-  /* Optional: make whole navbar padding smaller on mobile if you want */
-  .navbar {
-    padding: 0 1.2rem;
-  }
 }
 
 .logo {
@@ -246,6 +196,7 @@ body::before {
   display: flex;
   gap: 1rem;
   list-style: none;
+  background-color: none;
 }
 
 .nav-menu a {
@@ -265,9 +216,9 @@ body::before {
   left: 0;
   width: 100%;
   height: 2px;
-  background: var(--accent);
   border-radius: 2px;
   opacity: 0;
+  background-color: var(--accent);
   transform: scaleX(0.3);
   /* starts smaller */
   transform-origin: left;
@@ -288,8 +239,9 @@ body::before {
   display: flex;
   gap: 1rem;
   align-items: end;
+  justify-content: center;
   position: relative;
-  top: -5px;
+
 }
 
 .theme-toggle,
@@ -367,7 +319,9 @@ body::before {
 [data-theme="dark"] .icon-sun {
   filter: brightness(0) invert(1);
 }
-
+[data-theme="dark"] .menu-icon-open {
+  filter: brightness(0) invert(1);
+}
 .flag-icon {
   width: auto;
   height: 27px;
@@ -478,7 +432,7 @@ section#home .home-container .row .explore-image {
 
 section#home .home-container .row .explore-image img {
   width: 100%;
-  max-width: 600px;
+  max-width: 800px;
   object-fit: cover;
   animation: shake-vertical-normal 20s ease-in-out 10s infinite normal both; 
 }
@@ -509,6 +463,59 @@ section#home .home-container .row .explore-image img {
 
   90% {
     transform: translateY(-6.4px);
+  }
+}
+
+/* Mobile menu – appears below navbar when opened */
+@media screen and (max-width: 890px) {   /* ← you can change 850px to 900px or 768px */
+  /* Show hamburger button */
+  .menu-toggle {
+    display: flex;
+    margin-right: 10px;
+  }
+  .nav-theme-flag{
+    z-index: 2001;
+  }
+  
+  /* Hide normal horizontal menu */
+  .nav-menu {
+    display: flex;                      /* we keep display:flex always */
+    flex-direction: column;
+    position: fixed;
+    top: 70px;
+    right: 0;
+    min-width: 40%;                         /* your desired menu width */
+    height: 100vh;
+    opacity: 1 !important;
+      background-color: var(--nav-menu);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transform: translateX(100%);        /* starts fully off-screen to the right */
+    transition: transform 0.4s ease;    /* only transition the slide */
+    z-index: 1999;
+    padding: 20px 20px 20px 20px;
+    box-sizing: border-box;
+  }
+
+  /* Optional: add slight shadow / overlay feel */
+  .nav-menu.active {
+    transform: translateX(0);  
+    box-shadow: -8px 0 25px rgba(0,0,0,0.25);
+  }
+
+  .nav-menu li {
+    text-align: left;
+
+  }
+
+  .nav-menu li a {
+      font-size: 1rem;
+      padding: 0.5rem 0.3rem;
+  }
+
+  /* Optional: make whole navbar padding smaller on mobile if you want */
+  .navbar {
+    padding: 0 1.2rem;
   }
 }
 /* Mobile – hide menu for now (you can add hamburger later) */
