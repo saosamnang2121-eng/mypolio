@@ -522,60 +522,87 @@ section#explore .explore-row-txt-tp .explore-sv-of p{
 /* From Uiverse.io by Yaya12085 */ 
 .card-exp-card {
   display: flex;
+  position: relative;
   flex-direction: column;
   justify-content: space-between;
   border-radius: 0.2rem;
   background-color: white;
-  width: 100%;
+  width: auto;
   height: 300px;
   padding: 0;
+  overflow: hidden;
   box-shadow: 0 4px 6px -1px rgba(0,0,0,.1),
   0 2px 4px -2px rgba(0,0,0,.1);
 }
 
 .header-exp-card {
-  position: relative;
-  background-clip: border-box;
-  margin-top: 1.5rem;
-  margin-left: 1rem;
-  margin-right: 1rem;
-  border-radius: 0.75rem;
-  background-color: rgb(33 150 243);
-  box-shadow: 0 10px 15px -3px rgba(33,150,243,.4),0 4px 6px -4px rgba(33,150,243,.4);
-  height: 14rem;
+  display: block;
+  border-radius: 0.2rem;
+  height: 150px;
+  overflow: hidden;
+}
+.header-exp-card img{
+  width: 100%;
+  object-fit: cover;
+  border-radius: 0.2rem;
 }
 
 .info-exp-card {
+  display: block;
   border: none;
-  padding: 1.5rem;
-  text-align: center;
+  padding: 5px;
+  text-align: start;
+  width: 100%;
+  height: 100px;
+  overflow: hidden;
+  font-family: "IBM Plex Mono","Kantumruy", monospace, sans-serif;
 }
 
 .title-exp-card {
+  margin-top: 5px;
   color: rgb(38 50 56);
   letter-spacing: 0;
-  line-height: 1.375;
-  font-weight: 600;
-  font-size: 1.25rem;
+  line-height: 0.7;
+  font-weight: 400;
+  font-size: 0.7;
   margin-bottom: 0.5rem;
+  /* Ellipsis magic */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+.info-exp-card .txt-exp-decr{
+  height: 70px;
+  /* Multiline truncation with ellipsis */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;          /* ← change this: e.g. 3, 4, 5 lines max */
+  -webkit-box-orient: vertical;
+  line-clamp: 3;                  /* modern property – use this when possible */
+  overflow: hidden;
+  text-overflow: ellipsis;        /* fallback/help in some cases */
+  /* Optional but recommended */
+  max-width: 100%;
 }
 
 .footer-exp-card {
+
   padding: 0.75rem;
   border-radius: 0.2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 50px;
   background-color: rgba(0, 140, 255, 0.082);
 }
 
-.tag-exp-card {
+/* .tag-exp-card {
   font-weight: 300;
   font-size: .75rem;
   display: block;
-}
+} */
 
-.action-exp-card {
+/* .action-exp-card {
   -webkit-user-select: none;
   -moz-user-select: none;
   user-select: none;
@@ -589,7 +616,7 @@ section#explore .explore-row-txt-tp .explore-sv-of p{
   padding: 0.75rem 1.5rem;
   background-color: rgb(33 150 243);
   border-radius: 0.5rem;
-}
+}  */
 
 
 /* Mobile menu – appears below navbar when opened */
