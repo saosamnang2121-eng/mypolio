@@ -1,151 +1,198 @@
 <!doctype html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>mypolio</title>
-    <link rel="icon" href="img/logo/mypolio.png" type="image/svg+xml">
-    <!--  -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playwrite+GB+J+Guides:ital@0;1&display=swap"
-      rel="stylesheet">
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-      crossorigin="anonymous" />
-    <link rel="stylesheet" href="css/index.css" />
-    <link rel="stylesheet" href="css/translate.css" />
-    <script src="js/index.js" defer></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <!--  -->
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>mypolio</title>
+  <link rel="icon" href="img/logo/mypolio.png" type="image/svg+xml">
+  <!--  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playwrite+GB+J+Guides:ital@0;1&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+  <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" href="css/translate.css" />
+  <script src="js/index.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <!--  -->
+</head>
 
-  <body>
-      <div class="shape s1"></div>
-      <div class="shape s2"></div>
-      <div class="shape s3"></div>
+<body>
+  <div class="shape s1"></div>
+  <div class="shape s2"></div>
+  <div class="shape s3"></div>
 
-      <nav class="nav">
-        <nav class="navbar">
-          <!-- Left: Logo -->
-          <a href="#home" class="logo">
-            <!-- Light mode logo (default / visible in light) -->
-            <img src="img/logo/mypolio-logo.png" class="logo-light"
-              alt="MyPolio Logo">
+  <nav class="nav">
+    <nav class="navbar">
+      <!-- Left: Logo -->
+      <a href="#home" class="logo">
+        <!-- Light mode logo (default / visible in light) -->
+        <img src="img/logo/mypolio-logo.png" class="logo-light" alt="MyPolio Logo">
 
-            <!-- Dark mode logo (hidden by default) -->
-            <img src="img/logo/mypolio-logo-white.png" class="logo-dark"
-              alt="MyPolio Logo">
-          </a>
+        <!-- Dark mode logo (hidden by default) -->
+        <img src="img/logo/mypolio-logo-white.png" class="logo-dark" alt="MyPolio Logo">
+      </a>
 
-          <!-- Middle: Menu -->
-          <ul class="nav-menu">
-            <li><a data-i18n="home" href="#home" class="active">Home</a></li>
-            <li><a data-i18n="services" href="#service">Services</a></li>
-            <li><a data-i18n="tools" href="#tools">Tools</a></li>
-            <li><a data-i18n="coding_channel" href="#codingch">Coding
-                Channel</a></li>
-            <li><a data-i18n="about_owner" href="#owner">About Owner</a></li>
-            <li><a data-i18n="contact" href="#contact">Contact</a></li>
-          </ul>
+      <!-- Middle: Menu -->
+      <ul class="nav-menu">
+        <li><a data-i18n="home" href="#home" class="active">Home</a></li>
+        <li><a data-i18n="services" href="#service">Services</a></li>
+        <li><a data-i18n="tools" href="#tools">Tools</a></li>
+        <li><a data-i18n="coding_channel" href="#codingch">Coding
+            Channel</a></li>
+        <li><a data-i18n="about_owner" href="#owner">About Owner</a></li>
+        <li><a data-i18n="contact" href="#contact">Contact</a></li>
+      </ul>
 
-          <!-- Right: Theme toggle -->
-          <nav class="nav-theme-flag">
-            <button class="theme-toggle" data-i18n-title="toggle_theme"
-              aria-label="Toggle theme">
-              <!-- Sun icon – visible when in DARK mode (means: click to go light) -->
-              <img src="img/icon/sun.svg" class="theme-icon icon-sun" alt
-                aria-hidden="true">
+      <!-- Right: Theme toggle -->
+      <nav class="nav-theme-flag">
+        <button class="theme-toggle" data-i18n-title="toggle_theme" aria-label="Toggle theme">
+          <!-- Sun icon – visible when in DARK mode (means: click to go light) -->
+          <img src="img/icon/sun.svg" class="theme-icon icon-sun" alt aria-hidden="true">
 
-              <!-- Moon icon – visible when in LIGHT mode (means: click to go dark) -->
-              <img src="img/icon/moon.svg" class="theme-icon icon-moon" alt
-                aria-hidden="true">
-            </button>
-            <!-- Right: flag toggle -->
-            <!-- Language/flag toggle -->
-            <button class="flag-toggle" data-i18n-title="flag_toggle_title"
-              aria-label="Switch language">
-              <!-- Cambodian flag – shown when language is Khmer -->
-              <img src="img/icon/cambodia-flag.svg" class="flag-icon flag-kh"
-                alt="Khmer" aria-hidden="true">
+          <!-- Moon icon – visible when in LIGHT mode (means: click to go dark) -->
+          <img src="img/icon/moon.svg" class="theme-icon icon-moon" alt aria-hidden="true">
+        </button>
+        <!-- Right: flag toggle -->
+        <!-- Language/flag toggle -->
+        <button class="flag-toggle" data-i18n-title="flag_toggle_title" aria-label="Switch language">
+          <!-- Cambodian flag – shown when language is Khmer -->
+          <img src="img/icon/cambodia-flag.svg" class="flag-icon flag-kh" alt="Khmer" aria-hidden="true">
 
-              <!-- US/English flag – shown when language is English -->
-              <img src="img/icon/us-flag.svg" class="flag-icon flag-en"
-                alt="English" aria-hidden="true">
-            </button>
-            </button>
-            <!-- Hamburger toggle (only visible on mobile) -->
-      <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
-        <img src="img/icon/menu-right-alt.svg" class="menu-icon menu-icon-open" alt="" aria-hidden="true">
-        <!-- Optional: you can add a close icon later -->
-      </button>
-          </nav>
-        </nav>
-
+          <!-- US/English flag – shown when language is English -->
+          <img src="img/icon/us-flag.svg" class="flag-icon flag-en" alt="English" aria-hidden="true">
+        </button>
+        </button>
+        <!-- Hamburger toggle (only visible on mobile) -->
+        <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <img src="img/icon/menu-right-alt.svg" class="menu-icon menu-icon-open" alt="" aria-hidden="true">
+          <!-- Optional: you can add a close icon later -->
+        </button>
       </nav>
-      <!-- Main content – each menu item has its own <section id="..."> -->
-      <main class="sections-container">
-        <section id="home">
-          <div class="home-container">
-            <div class="row">
-              <div class="col-sm-12 col-xs-12 col-md-6 order-sm-2 order-md-1 txt-home-top">
-                <h2 class="welcome_text " data-i18n="welcome_text">Hey..!What are you looking in there?</h2>
-                <p class="welcome_description" data-i18n="welcome_description">
-                  Are you looking for web application services, coding tutorials, tools that can help you, them or template for web development. Maybe you've come to the right place!
-                </p>
-                <a class="btn btn-explore btn-primary" href="#explore"
-                  data-i18n="explore_more">Explore More</a>
-              </div>
-              <div class="col-sm-12 col-xs-12 col-md-6 explore-image order-md-2 order-sm-1 order-xs-1">
-                <img src="img/img_content/looking-icon.svg" alt>
-              </div>
+    </nav>
+
+  </nav>
+  <!-- Main content – each menu item has its own <section id="..."> -->
+  <main class="sections-container">
+    <section id="home">
+      <div class="home-container">
+        <div class="row">
+          <div class="col-sm-12 col-xs-12 col-md-6 order-sm-2 order-md-1 txt-home-top">
+            <h2 class="welcome_text " data-i18n="welcome_text">Hey..!What are you looking in there?</h2>
+            <p class="welcome_description" data-i18n="welcome_description">
+              Are you looking for web application services, coding tutorials, tools that can help you, them or template
+              for web development. Maybe you've come to the right place!
+            </p>
+            <a class="btn btn-explore btn-primary" href="#explore" data-i18n="explore_more">Explore More</a>
+          </div>
+          <div class="col-sm-12 col-xs-12 col-md-6 explore-image order-md-2 order-sm-1 order-xs-1">
+            <img src="img/img_content/looking-icon.svg" alt>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="glow-line"></div>
+    <section id="explore">
+      <div class="row explore-row-txt-tp">
+        <div class="text-center col-sm-3 col-md-3 text-md-start text-sm-center text-sm-upper text-sm-underline">
+          <h2 data-i18n="services">Services</h2>
+        </div>
+        <div class="text-center col-sm-9 col-md-9 explore-sv-of text-md-start text-sm-center">
+          <p data-i18n="services_description_offer">We offer a wide range of web services, digital solutions tailored to
+            your needs.</p>
+        </div>
+      </div>
+      <!-- -->
+      <div class="row mt-2">
+        <div class="col-lg-6 col-md-6 col-sm-6 mt-3">
+          <div class="card-exp-card">
+            <div class="header-exp-card"></div>
+            <div class="info-exp-card">
+              <p class="title-exp-card">How to make this material card ?</p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+                molestiae quas vel sint commodi. </p>
+            </div>
+            <div class="footer-exp-card">
+              <p class="tag-exp-card">#HTML #CSS </p>
+              <button type="button" class="action-exp-card">Get started </button>
             </div>
           </div>
-        </section>
-        <div class="glow-line"></div>
-        <section id="explore">
-          <div class="row explore-row-txt-tp">
-            <div class="col-sm-3 col-md-3">
-              <h2 data-i18n="services">Services</h2>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 mt-3">
+          <div class="card-exp-card">
+            <div class="header-exp-card"></div>
+            <div class="info-exp-card">
+              <p class="title-exp-card">How to make this material card ?</p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+                molestiae quas vel sint commodi. </p>
             </div>
-            <div class="col-sm-9 col-md-9 explore-sv-of">
-              <p data-i18n="services_description_offer">We offer a wide range of web development services including custom websites, web applications, and digital solutions tailored to your needs.</p>
+            <div class="footer-exp-card">
+              <p class="tag-exp-card">#HTML #CSS </p>
+              <button type="button" class="action-exp-card">Get started </button>
             </div>
           </div>
-          
-          <!-- add cards, lists, images, etc. -->
-        </section>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 mt-3">
+          <div class="card-exp-card">
+            <div class="header-exp-card"></div>
+            <div class="info-exp-card">
+              <p class="title-exp-card">How to make this material card ?</p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+                molestiae quas vel sint commodi. </p>
+            </div>
+            <div class="footer-exp-card">
+              <p class="tag-exp-card">#HTML #CSS </p>
+              <button type="button" class="action-exp-card">Get started </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 mt-3">
+          <div class="card-exp-card">
+            <div class="header-exp-card"></div>
+            <div class="info-exp-card">
+              <p class="title-exp-card">How to make this material card ?</p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+                molestiae quas vel sint commodi. </p>
+            </div>
+            <div class="footer-exp-card">
+              <p class="tag-exp-card">#HTML #CSS </p>
+              <button type="button" class="action-exp-card">Get started </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- add cards, lists, images, etc. -->
+    </section>
 
-        <section id="tools">
-          <h2 data-i18n="tools">Tools</h2>
-          <p>Your tools content...</p>
-        </section>
+    <section id="tools">
+      <h2 data-i18n="tools">Tools</h2>
+      <p>Your tools content...</p>
+    </section>
 
-        <section id="coding-channel">
-          <h2 data-i18n="coding_channel">Coding Channel</h2>
-          <p>Embed YouTube, videos, tutorials...</p>
-        </section>
+    <section id="coding-channel">
+      <h2 data-i18n="coding_channel">Coding Channel</h2>
+      <p>Embed YouTube, videos, tutorials...</p>
+    </section>
 
-        <section id="about-owner">
-          <h2 data-i18n="about_owner">About Owner</h2>
-          <p>Your bio, photo, etc...</p>
-        </section>
+    <section id="about-owner">
+      <h2 data-i18n="about_owner">About Owner</h2>
+      <p>Your bio, photo, etc...</p>
+    </section>
 
-        <section id="contact">
-          <h2 data-i18n="contact">Contact</h2>
-          <form><!-- your contact form --></form>
-        </section>
+    <section id="contact">
+      <h2 data-i18n="contact">Contact</h2>
+      <form><!-- your contact form --></form>
+    </section>
 
-      </main>
-    <!--  -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-      crossorigin="anonymous"></script>
-  </body>
+  </main>
+  <!--  -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+</body>
 
 </html>
