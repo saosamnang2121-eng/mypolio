@@ -62,6 +62,12 @@ html[lang="km"] section#explore .explore-row-txt-tp p{
     font-family: "Kantumruy Pro","IBM Plex Mono", monospace, sans-serif;
     line-height: 1.7;
 }
+html[lang="km"] .title-exp-card,
+html[lang="km"] .txt-exp-decr,
+html[lang="km"] .tag-exp-card,
+html[lang="km"] .action-exp-card {
+    font-family: "Kantumruy Pro","IBM Plex Mono", monospace, sans-serif;
+}
 /* Fade-up animation for home section elements */
 .welcome_text,
 .welcome_description,

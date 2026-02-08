@@ -11,13 +11,17 @@
   --nav-menu: #0f0a2a;     /* dark / slate */
   --bg-hover: #ff8d50;
   --color-btn: #ffffff;
+  --text-muted1: #0066cc;
+  --bg-mouted1: #fff;
 }
 
 [data-theme="light"] {
+  --bg-mouted1: #fff;
   --bg-start: #f8f9fa;
   --bg-mid: #f8f9fa;
   --bg-end: #f8f9fa;
-  --text: #0f1bff;
+  --text: #ffffff;
+  --text-muted1: #0066cc;
   --text-muted: #0066cc;
   --accent: #0066cc;
   --border: #ddd;
@@ -501,7 +505,7 @@ section#explore .explore-row-txt-tp h2 {
   font-size: clamp(1rem, 4vw + 0.5rem, 2rem);
   font-weight: 600;
   color: var(--text);
-  align-items: center;
+  align-items: start;
   margin: auto 0;
 }
 
@@ -526,20 +530,26 @@ section#explore .explore-row-txt-tp .explore-sv-of p{
   flex-direction: column;
   justify-content: space-between;
   border-radius: 0.2rem;
-  background-color: white;
+  background-color: var(--bg-mouted1);
   width: auto;
-  height: 300px;
+  height: 350px;
   padding: 0;
   overflow: hidden;
-  box-shadow: 0 4px 6px -1px rgba(0,0,0,.1),
-  0 2px 4px -2px rgba(0,0,0,.1);
+  transform: 0.3s all !important;
+}
+.col-exp {
+  transition: transform 0.3s ease;
+}
+.col-exp:hover {
+  transform: scale(1.03);
 }
 
 .header-exp-card {
   display: block;
   border-radius: 0.2rem;
-  height: 150px;
+  height: 180px;
   overflow: hidden;
+  
 }
 .header-exp-card img{
   width: 100%;
@@ -560,19 +570,20 @@ section#explore .explore-row-txt-tp .explore-sv-of p{
 
 .title-exp-card {
   margin-top: 5px;
-  color: rgb(38 50 56);
+  color: var(--text-muted1);
   letter-spacing: 0;
   line-height: 0.7;
-  font-weight: 400;
-  font-size: 0.7;
+  font-weight: 800;
+  font-size: 1.2rem;
   margin-bottom: 0.5rem;
   /* Ellipsis magic */
   white-space: nowrap;
-  overflow: hidden;
   text-overflow: ellipsis;
   max-width: 100%;
 }
+
 .info-exp-card .txt-exp-decr{
+  color: var(--text-muted1);
   height: 70px;
   /* Multiline truncation with ellipsis */
   display: -webkit-box;
@@ -583,40 +594,38 @@ section#explore .explore-row-txt-tp .explore-sv-of p{
   text-overflow: ellipsis;        /* fallback/help in some cases */
   /* Optional but recommended */
   max-width: 100%;
+  font-family: "IBM Plex Mono","Kantumruy", monospace, sans-serif;
 }
 
 .footer-exp-card {
-
-  padding: 0.75rem;
-  border-radius: 0.2rem;
+  padding: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 50px;
-  background-color: rgba(0, 140, 255, 0.082);
+  border-top: var(--text-muted1) 1px solid;
 }
 
-/* .tag-exp-card {
+.tag-exp-card {
   font-weight: 300;
   font-size: .75rem;
-  display: block;
-} */
+  margin: auto 0;
+  font-family: "IBM Plex Mono","Kantumruy", monospace, sans-serif;
+  color: var(--accent);
+}
 
-/* .action-exp-card {
+.action-exp-card {
   -webkit-user-select: none;
   -moz-user-select: none;
   user-select: none;
   border: none;
   outline: none;
-  box-shadow: 0 4px 6px -1px rgba(33,150,243,.4),0 2px 4px -2px rgba(33,150,243,.4);
-  color: rgb(255 255 255);
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: .75rem;
-  padding: 0.75rem 1.5rem;
-  background-color: rgb(33 150 243);
-  border-radius: 0.5rem;
-}  */
+  background-color: transparent;
+  color: var(--text-muted1);
+  font-size: 0.9rem;
+  text-decoration: underline;
+  font-family: "IBM Plex Mono","Kantumruy", monospace, sans-serif;
+} 
 
 
 /* Mobile menu – appears below navbar when opened */
