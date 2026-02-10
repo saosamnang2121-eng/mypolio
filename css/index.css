@@ -524,6 +524,11 @@ section#explore .explore-row-txt-tp .explore-sv-of p{
 }
 /*  */
 /* From Uiverse.io by Yaya12085 */ 
+.row-exp-card{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 .card-exp-card {
   display: flex;
   position: relative;
@@ -577,7 +582,12 @@ section#explore .explore-row-txt-tp .explore-sv-of p{
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
   /* Ellipsis magic */
+  display: -webkit-box;
+  -webkit-line-clamp: 1;          /* ← change this: e.g. 3, 4, 5 lines max */
+  -webkit-box-orient: vertical;
+  line-clamp: 1;   
   white-space: nowrap;
+  overflow: hidden;
   text-overflow: ellipsis;
   max-width: 100%;
 }
