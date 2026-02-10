@@ -16,5 +16,7 @@
   "services_description_offer": "We offer a wide range of web services & digital solutions tailored to your needs.",
   "digital_wedding_invitation": "Digital Wedding Invitation.",
   "digital_wedding_invitation_exp": "Create beautiful and customizable digital wedding invitations with our easy-to-use. Choose from a variety of templates, personalize your design, and share your special day with friends and family in a unique and memorable way.",
-  "tag_exp_service": "#DigitalSulution"
+  "tag_exp_service": "#DigitalSulution",
+  "tag_exp_service_unavailable": "#ServiceUnavailable",
+  "tag_exp_service_available": "#ServiceAvailable"
 }
